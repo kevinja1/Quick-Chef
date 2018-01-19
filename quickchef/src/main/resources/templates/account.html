@@ -1,0 +1,285 @@
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Quick Chef</title>
+<!-- custom-theme -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Food Delivery, Chef, Home Cooking, Parties, Special Occation" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<!-- //custom-theme -->
+<link href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all" />
+
+<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script type="text/javascript" src="../static/js/jquery-2.1.4.min.js" th:src="@{/js/jquery-2.1.4.min.js}"></script>
+<!-- //js -->
+
+<!-- font-awesome-icons -->
+<link rel="stylesheet" href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}"/>
+<!-- //font-awesome-icons -->
+
+<!-- google fonts -->
+<link href="//fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Muli:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+<!-- //google fonts -->
+
+<link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+	
+<body>
+
+<div class="banner-header banner2">
+	<div class="banner-dott1">
+		<!--header-->
+		<div class="header">
+			<div class="container-fluid">
+				<nav class="navbar navbar-default" th:replace="fragments/header :: navigation('account')">				
+				</nav>	
+			</div>
+		</div>
+	</div>
+</div>
+<!-- // banner -->
+ 
+<section class="content">
+	<div class="row">
+		<div class="col-md-12"></div>	
+	</div>
+	
+	<h2 class="heading">My<span>Account</span></h2>
+	<p class="heading">Let's the meal begin</p>	
+	
+	<form role="form" th:action="@{/member/preferenceUpdate}" th:object="${preference}" method="post">
+	<div class="row setup-content" style="margin-left:50px;">
+		<div class="row wells">
+			<!-- Order Summary -->
+			<div class="col-xs-4">
+				<div class="row">
+					<h3><b>Account Profile</b></h3>
+					<hr>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 wells">
+						<div class="col-sm-6 wells">
+							<b>Name</b><br>
+							<span th:text="${user.firstName + ' ' + user.lastName}"></span>
+						</div>
+						<div class="col-sm-6 wells">
+							<b>Address</b><br>
+							<span th:text="${user.address[0].address1}"></span><br>
+							<span th:text="${user.address[0].city + ', ' + user.address[0].state + ' ' + user.address[0].zip}"></span><br>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 wells" style="margin-top: 10px;]">
+						<div class="col-md-6 wells">
+							<b>Card On File</b><br>
+							<span th:text="${paymentInfo.maskCcNum}"></span>
+						</div>
+						<div class="col-md-6 wells">
+							<b>Card Expiration</b><br>
+							<span th:text="${paymentInfo.ccExp}"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row setup-content" style="margin-left:50px;margin-top:25px;">
+		<div class="row wells">
+			<div class="col-xs-4">
+				<div class="row">
+					<h3><b>Meal Profile</b></h3> 
+					<hr>
+				</div>
+			</div>	
+		</div>
+		<div class="row">
+			<div class="wells">
+				<div class="form-group">
+					How many meals you would like to cook each week? &nbsp;&nbsp;
+					<select th:field="*{numMealsPerWeek}" style="width: 50px;">
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="2">6</option>												
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="wells">
+				<div class="form-group">
+					How many people are you cooking for? &nbsp;&nbsp;
+					<select th:field="*{numServings}" style="width: 50px;">
+						<option value="2">2</option>
+						<option value="2">4</option>
+						<option value="2">6</option>												
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="wells">
+				<div class="form-group">
+					Which of the following do you prefer?
+					<div style="margin-top: 25px;">
+						<input type="checkbox" th:field="*{meatInd}" value="true" style="margin-left: 50px;">&nbsp;Meat
+						<input type="checkbox" th:field="*{seafoodInd}" value="true" style="margin-left: 25px;">&nbsp;Seafood
+						<input type="checkbox" th:field="*{vagetableInd}" style="margin-left: 25px;">&nbsp;Vegan
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="wells">
+				<div class="form-group">
+					Do you have any dietary preferences?
+					<div style="margin-top: 25px;">
+						<input type="checkbox" th:field="*{lowCarbInd}" value="true" style="margin-left: 50px;">&nbsp;Low-carb
+						<input type="checkbox" th:field="*{lowCalorieInd}" value="true" style="margin-left: 25px;">&nbsp;Low-calorie
+						<input type="checkbox" th:field="*{glutenFreeInd}" value="true" style="margin-left: 25px;">&nbsp;Gluten-free
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row" style="margin-top:25px;">
+			<div class="wells">
+				<div class="form-group">									
+					<button class="btn btn-primary nextBtn" style="width:150px;" type="submit">
+						Save
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+</section>
+
+<!-- Footer -->
+<div class="footer w3ls" th:replace="fragments/footer :: footer">
+	<div class="container">
+		<div class="footer-main">
+			<div class="footer-top">
+				<div class="col-md-4 ftr-grid fg1">
+					<h3>opening timings</h3>
+					<p><span class="fa fa-clock-o" aria-hidden="true"></span><span>Mon - friday</span> : 9am to 8pm</p>
+					<p><span class="fa fa-clock-o" aria-hidden="true"></span><span>Saturday</span> : 9am to 5pm</p>
+					<p><span class="fa fa-clock-o" aria-hidden="true"></span><span>Sunday</span> : 6am to 11pm</p>
+				</div>
+				<div class="col-md-4 ftr-grid fg2 mid-gd">
+					<h3>Our Address</h3>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p>Lorem ipsum dolor sit amet.</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-phone" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p>+1 (512) 154 8176</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p><a href="mailto:info@example.com">info@example.com</a></p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="col-md-4 ftr-grid fg2">
+					<h3>Recent posts</h3>
+					<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</p>
+					<div class="more-button">
+						<a href="#">Read more</a>
+					</div>
+				</div>
+			   <div class="clearfix"> </div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<!-- Footer -->	
+
+<!-- start-smoth-scrolling -->
+<script src="../static/js/SmoothScroll.min.js" th:src="@{/js/SmoothScroll.js}"></script>
+
+<script type="text/javascript" src="../static/js/move-top.js" th:src="@{/js/move-top.js}"></script>
+	<script type="text/javascript" src="../static/js/easing.js" th:src="@{/js/easing.js}"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+	<!-- //here ends scrolling icon -->
+
+	<!-- for bootstrap working -->
+	<script src="../static/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+	<!-- //for bootstrap working -->
+	
+	<script type="text/javascript">
+		$(function() {
+		    $('#login-form-link').click(function(e) {
+				$("#login-form").delay(100).fadeIn(100);
+		 		$("#register-form").fadeOut(100);
+				$('#register-form-link').removeClass('active');
+				$(this).addClass('active');
+				e.preventDefault();
+			});
+			$('#register-form-link').click(function(e) {
+				$("#register-form").delay(100).fadeIn(100);
+		 		$("#login-form").fadeOut(100);
+				$('#login-form-link').removeClass('active');
+				$(this).addClass('active');
+				e.preventDefault();
+			});
+		});
+	</script>
+</body>
+</html>

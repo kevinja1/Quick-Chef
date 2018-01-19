@@ -1,0 +1,484 @@
+<form role="form" th:action="${formAction}" th:object="${formStep1}" method="post" th:fragment="step1">
+	<div class="alert alert-danger" th:if="${#fields.hasGlobalErrors()}">
+    	<p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>    
+	</div>
+	<div class="row setup-content" id="step-1">
+		<div class="col-xs-12">
+			<h4>Account Information:</h4>
+		</div>	
+		<div class="col-xs-12" style="margin-top:25px;" th:if="${hideLoginDetail == false}">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="username" class="control-label">Username</label>
+					<input th:field="*{username}" maxlength="100" type="text" class="form-control" />
+					<span class="help-block" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Required field</span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="password" class="control-label">Password</label>
+					<input th:field="*{password}" maxlength="100" type="password" class="form-control" />
+					<span class="help-block" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Required field</span>						
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="firstName" class="control-label">First Name</label>
+					<input th:field="*{firstName}" maxlength="100" type="text" class="form-control" placeholder="Enter First Name"/>
+					<span class="help-block" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Required field</span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="lastName" class="control-label">Last Name</label>
+					<input th:field="*{lastName}" maxlength="100" type="text" class="form-control" placeholder="Enter Last Name"/>
+					<span class="help-block" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Required field</span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="email" class="control-label">Email</label>
+					<input th:field="*{email}" maxlength="100" type="email" class="form-control" placeholder="Enter Email Address"/>
+					<span class="help-block" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Required field</span>
+				</div>   
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<h4>Shipping Address:</h4>
+		</div>
+		<div class="col-xs-12" style="margin-top:25px;">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="address1" class="control-label">Address 1</label>
+					<input th:field="*{address1}" maxlength="200" type="text" class="form-control" placeholder="Enter Address 1"/>
+					<span class="help-block" th:if="${#fields.hasErrors('address1')}" th:errors="*{address1}">Required field</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="address2" class="control-label">Address 2 (Optional)</label>
+					<input th:field="*{address2}" maxlength="200" type="text" class="form-control" placeholder="Enter Address 2"/>
+					<span class="help-block" th:if="${#fields.hasErrors('address2')}" th:errors="*{address2}">Required field</span>
+				</div>
+			</div>
+		</div>	
+		<div class="col-xs-12">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="City" class="control-label">City</label>
+					<input th:field="*{city}" maxlength="12" type="text" class="form-control" placeholder="Enter City"/>
+					<span class="help-block" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Required field</span>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<label for="step_cpwd" class="control-label">State</label>
+					<input th:field="*{state}" maxlength="12" type="text" class="form-control" placeholder="Enter State"/>
+					<span class="help-block" th:if="${#fields.hasErrors('state')}" th:errors="*{state}">Required field</span>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<label for="step_cpwd" class="control-label">Zip</label>
+					<input th:field="*{zip}" maxlength="12" type="text" class="form-control" placeholder="Enter Zip"/>
+					<span class="help-block" th:if="${#fields.hasErrors('zip')}" th:errors="*{zip}">Required field</span>
+				</div>
+			</div>			
+		</div>
+		<div class="col-xs-12">
+			<div class="col-md-12">
+				<hr/>
+			</div>
+		</div>
+		<div class="col-xs-12" style="margin-bottom:25px;margin-top:25px;">
+			<div class="col-md-4">							                                      
+				<button class="btn btn-primary nextBtn" style="width:150px;" type="submit">
+					Next
+				</button>
+			</div>								
+		</div>
+	</div>
+</form>
+<form role="form" th:action="${formAction}" th:object="${formStep2}" method="post" th:fragment="step2">
+	<div class="alert alert-danger" th:if="${#fields.hasGlobalErrors()}">
+    	<p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>    
+	</div>
+	<div class="row setup-content" id="step-2">
+		<div class="col-xs-12" style="margin-bottom: 25px;">
+			<h3>Setup Your Meal Preference:</h3>
+			<span class="wells">
+			 We will use your meal preference to setup your weekly assigned meals. 
+			 The preference can be updated at any time after sign-up.
+			</span> 
+		</div>
+		<div class="col-xs-12" style="margin-bottom: 25px;">
+			<div class="col-md-6">
+				<div class="wells">
+					<div class="form-group">
+						How many meals you would like to cook each week? &nbsp;&nbsp;
+						<select th:field="*{numMealsPerWeek}" style="width: 50px;">
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>												
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="wells">
+					<div class="form-group">
+						How many people are you cooking for? &nbsp;&nbsp;
+						<select th:field="*{numServings}" style="width: 50px;">
+							<option value="2">2</option>
+							<option value="2">4</option>
+							<option value="2">6</option>												
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12" style="margin-bottom: 25px;">
+			<div class="col-md-12">
+				<div class="wells">
+					<div class="form-group">
+						Which of the following do you prefer?
+						<div style="margin-top: 25px;">
+							<input type="checkbox" th:field="*{meatInd}" value="true" style="margin-left: 50px;">&nbsp;Meat
+							<input type="checkbox" th:field="*{seafoodInd}" value="true" style="margin-left: 25px;">&nbsp;Seafood
+							<input type="checkbox" th:field="*{vagetableInd}" style="margin-left: 25px;">&nbsp;Vegan
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12" style="margin-bottom: 25px;">
+			<div class="col-md-12">
+				<div class="wells">
+					<div class="form-group">
+						Do you have any dietary preferences?
+						<div style="margin-top: 25px;">
+							<input type="checkbox" th:field="*{lowCarbInd}" value="true" style="margin-left: 50px;">&nbsp;Low-carb
+							<input type="checkbox" th:field="*{lowCalorieInd}" value="true" style="margin-left: 25px;">&nbsp;Low-calorie
+							<input type="checkbox" th:field="*{glutenFreeInd}" value="true" style="margin-left: 25px;">&nbsp;Gluten-free
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<div class="col-md-12">
+				<hr/>
+			</div>
+		</div>
+		<div class="col-md-12" style="margin-bottom:25px;margin-top:25px;">
+			<div class="form-group">									
+				<button class="btn btn-primary nextBtn" style="width:150px;" type="submit">
+					Next
+				</button>
+			</div>
+		</div>
+	</div>
+</form>
+<form role="form" th:action="${formAction}" th:object="${formStep3}" method="post" th:fragment="step3">
+	<div class="alert alert-danger" th:if="${#fields.hasGlobalErrors()}">
+    	<p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>    
+	</div>
+	<div class="row setup-content" id="step-2">
+		<div class="col-xs-12" style="margin-bottom: 25px;">
+			<h3>Payment Information:</h3>
+			<div style="margin-top: 25px;">
+				<div class="col-md-4">
+					<div class="form-group">
+						<label for="nameOnCard" class="control-label">Cardholder Name</label>
+						<input th:field="*{nameOnCard}" maxlength="16" type="text" class="form-control" placeholder="Cardholder Name"/>
+						<span class="help-block" th:if="${#fields.hasErrors('nameOnCard')}" th:errors="*{nameOnCard}">Required field</span>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<div class="col-xs-12" style="margin-bottom: 25px;">
+			<div style="margin-top: 25px;">
+				<div class="col-md-4">
+					<div class="form-group">
+						<label for="ccNum" class="control-label">Card Number</label>
+						<input th:field="*{ccNum}" maxlength="16" type="text" class="form-control" placeholder="Card Number"/>
+						<span class="help-block" th:if="${#fields.hasErrors('ccNum')}" th:errors="*{ccNum}">Required field</span>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="form-group">
+						<label for="ccExp" class="control-label">Card Expiration</label>
+						<input th:field="*{ccExp}" maxlength="5" type="text" class="form-control" placeholder="MM/YY"/>
+						<span class="help-block" th:if="${#fields.hasErrors('ccExp')}" th:errors="*{ccExp}">Required field</span>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="form-group">
+						<label for="ccCvc" class="control-label">CVC</label>
+						<input th:field="*{ccCvc}" maxlength="3" type="text" class="form-control" placeholder="CVC"/>
+						<span class="help-block" th:if="${#fields.hasErrors('ccCvc')}" th:errors="*{ccCvc}">Required field</span>
+					</div>
+				</div>
+			</div> 
+		</div>
+		<div class="col-xs-4" style="margin-bottom: 25px;">
+		</div>
+		<div class="col-xs-12">
+			<h3>Billing Address:</h3>
+			<span class="wells">Leave billing address blank if it is the same as shipping address.</span>
+		</div>
+		<div class="col-xs-12" style="margin-top:25px;">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="billAddress1" class="control-label">Address 1</label>
+					<input th:field="*{billAddress1}" maxlength="200" type="text" class="form-control" placeholder="Enter Address 1"/>
+					<span class="help-block" th:if="${#fields.hasErrors('billAddress1')}" th:errors="*{billAddress1}">Required field</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="billAddress2" class="control-label">Address 2 (Optional)</label>
+					<input th:field="*{billAddress2}" maxlength="200" type="text" class="form-control" placeholder="Enter Address 2"/>
+					<span class="help-block" th:if="${#fields.hasErrors('billAddress2')}" th:errors="*{billAddress2}">Required field</span>
+				</div>
+			</div>
+		</div>	
+		<div class="col-xs-12">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="City" class="control-label">City</label>
+					<input th:field="*{billCity}" maxlength="12" type="text" class="form-control" placeholder="Enter City"/>
+					<span class="help-block" th:if="${#fields.hasErrors('billCity')}" th:errors="*{billCity}">Required field</span>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<label for="step_cpwd" class="control-label">State</label>
+					<input th:field="*{billState}" maxlength="12" type="text" class="form-control" placeholder="Enter State"/>
+					<span class="help-block" th:if="${#fields.hasErrors('billState')}" th:errors="*{billState}">Required field</span>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<label for="step_cpwd" class="control-label">Zip</label>
+					<input th:field="*{billZip}" maxlength="12" type="text" class="form-control" placeholder="Enter Zip"/>
+					<span class="help-block" th:if="${#fields.hasErrors('billZip')}" th:errors="*{billZip}">Required field</span>
+				</div>
+			</div>			
+		</div>
+		<div class="col-xs-12">
+			<div class="col-md-12">
+				<hr/>
+			</div>
+			<div class="col-md-12" style="margin-bottom:25px;margin-top:25px;">
+				<div class="form-group">									
+					<button class="btn btn-primary nextBtn" style="width:150px;" type="submit">
+						Next
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<form role="form" th:action="${formAction}" method="post" th:fragment="step4">
+	<div class="row setup-content" style="margin-left:25px;">
+		<div class="row wells">
+			<!-- Order Summary -->
+			<div class="col-xs-5">
+				<div class="row">
+					<h3><b>Order Summary</b></h3>
+					<hr>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 wells">
+						<div class="col-xs-12 wells">
+							<b>Meals Per Week</b><br>
+							<span th:text="${preference.numMealsPerWeek + ' Meals'}">meals</span>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 wells" style="margin-top: 10px;]">
+						<div class="col-xs-12 wells">
+							<b>Servings Per Meal</b><br>
+							<span th:text="${preference.numServings + ' Servings'}">Servings</span>
+						</div>
+					</div>
+				</div>
+				<div class="row" th:if="${preference.meatInd || preference.seafoodInd || preference.vagetableInd}">
+					<div class="col-xs-12 wells" style="margin-top: 10px;]">
+						<div class="col-xs-12 wells">
+							<b>Meal Preference</b><br>
+							<span>
+								You will receive a mix of <span th:text="${preference.preferenceText}"></span> meals.
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="row" th:if="${preference.lowCarbInd|| preference.lowCalorieInd || preference.glutenFreeInd}">
+					<div class="col-xs-12 wells" style="margin-top: 10px;]">
+						<div class="col-xs-12 wells">
+							<b>Diet Preference</b><br>
+							<span>
+								You prefer <span th:text="${preference.dietPrefText}"></span> meals.
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-2">&nbsp;</div>
+			<!-- Order Total -->
+			<div class="col-xs-5">
+				<div class="row">
+					<h3><b>Order Total</b></h3>
+					<hr>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 wells">
+						<div class="col-xs-6">
+							<b>Subtotal</b>
+						</div>
+						<div class="col-xs-6 text-right">
+							<span th:text="${'$' + #numbers.formatDecimal(order.subTotal, 0, 'COMMA', 2, 'POINT')}">0.00</span>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 wells" style="margin-top: 10px;]">
+						<div class="col-xs-6 wells">
+							<b>Shipping</b>
+						</div>
+						<div class="col-xs-6 text-right">
+							<span th:text="${'$' + #numbers.formatDecimal(order.shipping, 0, 'COMMA', 2, 'POINT')}">0.00</span>
+						</div>
+					</div>
+					
+				</div>
+				<div class="row">
+					<div class="col-xs-12 wells" style="margin-top: 10px;]">
+						<div class="col-xs-12 text-right">
+							Delivery is free with orders of $40 or more!
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 wells" style="margin-top: 10px;]">
+						<div class="col-xs-6 wells">
+							<h2>Your Total</h2>
+						</div>
+						<div class="col-xs-6 text-right">
+							<h2 th:text="${'$' + #numbers.formatDecimal(order.total, 0, 'COMMA', 2, 'POINT')}">0.00</h2>
+						</div>
+					</div>			
+				</div>
+			</div>
+			<div class="col-md-12" style="margin-bottom:25px;margin-top:25px;">
+				<div class="form-group">
+					<hr/>									
+					<button class="btn btn-success nextBtn" style="width:150px;" type="submit">
+						Complete Signup
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<form role="form" th:action="${formAction}" method="post" th:fragment="checkoutSummary">
+	<div class="row setup-content" style="margin-left:25px;">
+		<div class="row wells">
+			<!-- Order Summary -->
+			<div class="col-xs-5">
+				<div class="row">
+					<h3><b>Order Summary</b></h3>
+					<hr>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 wells">
+						<div class="col-sm-6 wells">
+							<b>Name</b><br>
+							<span th:text="${session.user.firstName + ' ' + session.user.lastName}"></span>
+						</div>
+						<div class="col-sm-6 wells">
+							<b>Address</b><br>
+							<span th:text="${session.user.address[0].address1}"></span><br>
+							<span th:text="${session.user.address[0].city + ', ' + session.user.address[0].state + ' ' + session.user.address[0].zip}"></span><br>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 wells" style="margin-top: 10px;]">
+						<div class="col-md-6 wells">
+							<b>Card On File</b><br>
+							<span th:text="${paymentInfo.maskCcNum}"></span>
+						</div>
+						<div class="col-md-6 wells">
+							<b>Card Expiration</b><br>
+							<span th:text="${paymentInfo.ccExp}"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-2">&nbsp;</div>
+			<!-- Order Total -->
+			<div class="col-xs-5">
+				<div class="row">
+					<h3><b>Order Total</b></h3>
+					<hr>
+				</div>
+				<div class="row" th:each="item,stat : ${cart.allItems}" >
+					<div class="col-xs-12 wells">
+						<div class="col-xs-9">
+							<span th:text="${item.name + ' (Qty ' + item.quantity + ')'}"></span>
+						</div>
+						<div class="col-xs-3 text-right">
+							<span th:text="${'$' + #numbers.formatDecimal(item.itemTotal, 0, 'COMMA', 2, 'POINT')}">0.00</span>
+						</div>
+					</div>
+				</div> 
+				<div class="row">
+					<div class="col-xs-12 wells" style="margin-top: 10px;]">
+						<div class="col-xs-6 wells">
+							<b>Shipping</b>
+						</div>
+						<div class="col-xs-6 text-right">
+							<span th:text="${'$' + #numbers.formatDecimal(cart.cartShippingFee, 0, 'COMMA', 2, 'POINT')}">0.00</span>
+						</div>
+					</div>					
+				</div>
+				<div class="row">
+					<div class="col-xs-12 wells" style="margin-top: 10px;]">
+						<div class="col-xs-12 text-right">
+							Delivery is free with orders of $40 or more!
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 wells" style="margin-top: 10px;]">
+						<div class="col-xs-6 wells">
+							<h2>Your Total</h2>
+						</div>
+						<div class="col-xs-6 text-right">
+							<h2 th:text="${'$' + #numbers.formatDecimal(cart.cartTotal, 0, 'COMMA', 2, 'POINT')}">0.00</h2>
+						</div>
+					</div>			
+				</div>
+			</div>
+			<div class="col-md-12" style="margin-bottom:25px;margin-top:25px;" th:if="${hideButton == false}">
+				<div class="form-group">
+					<hr/>									
+					<button class="btn btn-success nextBtn" style="width:150px;" type="submit">
+						Submit
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

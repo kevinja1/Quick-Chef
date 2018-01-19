@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:fragment="header">
+	<title>Quick Chef</title>
+	<!-- custom-theme -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Food Recipe a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+			function hideURLbar(){ window.scrollTo(0,1); } </script>
+	
+	<!-- //custom-theme -->
+	<link href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all" />
+	
+	<!-- for banner css -->
+	<link href="../static/css/carousel.css" th:href="@{/css/carousel.css}" type="text/css" rel="stylesheet" media="all"><!-- carousel css -->  
+	<!-- //for banner css -->
+	
+	<link rel="stylesheet" href="../static/css/owl.carousel.css" th:href="@{/css/owl.carousel.css}" type="text/css" media="all"/> <!-- Owl-Carousel-CSS -->
+	
+	<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+	
+	<link rel="stylesheet" href="../static/css/flexslider.css" th:href="@{/css/flexslider.css}" type="text/css" media="screen" property="" /> <!-- Flexslider-CSS -->
+	
+	<!-- js -->
+	<script type="text/javascript" src="../static/js/jquery-2.1.4.min.js" th:src="@{/js/jquery-2.1.4.min.js}"></script>
+	<!-- //js -->
+	
+	<!-- font-awesome-icons -->
+	<link rel="stylesheet" href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}"/>
+	<!-- //font-awesome-icons -->
+	
+	<!-- google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Muli:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+	<!-- //google fonts -->
+</head>
+<body>
+<div class="banner-header banner2">
+	<div class="banner-dott1">
+		<!--header-->
+		<div class="header">
+			<div class="container-fluid">
+				<nav class="navbar navbar-default" th:fragment="navigation(activeModule)">
+					<div class="navbar-header navbar-left">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<div class="w3_navigation_pos">
+							<h1><a href="/">Quick <img src="../static/images/logo.png" th:src="@{/images/logo.png}" style="position:relative; top:-10px;"/> Chef</a></h1>
+						</div>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+						<nav>
+							<ul class="nav navbar-nav">
+								<li th:classappend="${activeModule == 'home' ? 'active' : ''}"><a href="/">Home</a></li>
+								<li th:classappend="${activeModule == 'howItWorks' ? 'active' : ''}"><a href="/howItWorks">How it works</a></li>
+								<li th:classappend="${activeModule == 'menu' ? 'active' : ''}"><a href="/menu">Our Menu</a></li>
+								<!--  
+								<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">Short Codes <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="icons.html">Icons</a></li>
+											<li><a href="typography.html">Typography</a></li>
+										</ul>
+								</li>
+								-->	
+								<li th:classappend="${activeModule == 'cart' ? 'active' : ''}">
+									<a href="/gotoCart">Cart <span class="badge badge-primary" th:text="${session.cart != null ? session.cart.cartItemCount : 0}">0</span></a>
+								</li>					
+								<li sec:authorize="!isAuthenticated()"><a href="/login">Login</a></li>
+								<li sec:authorize="isAuthenticated()" th:classappend="${activeModule == 'account' ? 'active' : ''}"><a href="/member/account">Account</a></li>
+								<li sec:authorize="isAuthenticated()"><a href="/logout">Logout</a></li>
+							</ul>
+						</nav>
+					</div>
+				</nav>	
+			</div>
+		</div>
+		<!--//header-->
+	</div>
+</div>
+</body>
+</html>

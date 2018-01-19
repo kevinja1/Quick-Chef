@@ -1,0 +1,270 @@
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Quick Chef</title>
+<!-- custom-theme -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Food Delivery, Chef, Home Cooking, Parties, Special Occation" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<!-- //custom-theme -->
+<link href="../static/css/bootstrap.css" th:href="@{css/bootstrap.css}" rel="stylesheet" type="text/css" media="all" />
+
+<link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" type="text/css" media="all" />
+
+<link href="../static/css/wizard.css" th:href="@{css/wizard.css}" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script type="text/javascript" src="../static/js/jquery-2.1.4.min.js" th:src="@{js/jquery-2.1.4.min.js}"></script>
+<!-- //js -->
+
+<!-- font-awesome-icons -->
+<link rel="stylesheet" href="../static/css/font-awesome.min.css" th:href="@{css/font-awesome.min.css}"/>
+<!-- //font-awesome-icons -->
+
+<!-- google fonts -->
+<link href="//fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Muli:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+<!-- //google fonts -->
+
+<link href="../static/css/login.css" th:href="@{css/login.css}" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+	
+<body>
+
+
+<div class="banner-header banner2">
+	<div class="banner-dott1">
+		<!--header-->
+		<div class="header">
+		<div class="container-fluid">
+			<nav class="navbar navbar-default" th:replace="fragments/header :: navigation('login')">
+				<div class="navbar-header navbar-left">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="w3_navigation_pos">
+						<h1><a href="index.html">Food Recipe</a></h1>
+					</div>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<nav>
+						<ul class="nav navbar-nav">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About Us</a></li>
+							<li><a href="services.html">Our Services</a></li>
+							<li><a href="gallery.html">Gallery</a></li>
+							<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">Short Codes <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="icons.html">Icons</a></li>
+										<li><a href="typography.html">Typography</a></li>
+									</ul>
+							  </li>
+							<li class="active"><a href="contact.html">Contact</a></li>
+						</ul>
+					</nav>
+				</div>
+			</nav>	
+		</div>
+	</div>
+		<!--//header-->
+	</div>
+</div>
+
+<section class="content" style="margin-left:50px; margin-top:25px;">
+	<div class="row">
+		<div class="col-md-12"></div>	
+	</div>
+	
+	<h2 class="heading">SignUp<span>Form</span></h2>
+	<p class="heading">Let's get started</p>	
+	
+	<div class="row">
+		<div class="col-md-10">			
+			<div class="panel-body">
+				<div class="stepwizard">
+					<div class="stepwizard-row setup-panel">
+						<div class="stepwizard-step">
+							<span class="btn btn-primary btn-circle" th:class="${currentStep == 'step1' ? 'btn btn-primary btn-circle' : 'btn btn-default btn-circle'}">1</span>
+							<p>Account</p>
+						</div>
+						<div class="stepwizard-step">
+							<span class="btn btn-default btn-circle" th:class="${currentStep == 'step2' ? 'btn btn-primary btn-circle' : 'btn btn-default btn-circle'}">2</span>
+							<p>Preference</p>
+						</div>
+						<div class="stepwizard-step">
+							<span class="btn btn-default btn-circle" th:class="${currentStep == 'step3' ? 'btn btn-primary btn-circle' : 'btn btn-default btn-circle'}">3</span>
+							<p>Payment</p>
+						</div>
+						<div class="stepwizard-step">
+							<span class="btn btn-default btn-circle" th:class="${currentStep == 'step4' ? 'btn btn-primary btn-circle' : 'btn btn-default btn-circle'}">4</span>
+							<p>Summary</p>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<br/>
+				<form role="form" th:action="@{/step1}" th:object="${signupFormStep1}" method="post" th:replace="fragments/forms :: ${currentStep}">
+					<div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+    					<p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>    
+					</div>
+					<div class="row setup-content" id="step-1" th:style="${currentStep == 'step1' ? 'display: block;' : 'display:none;'}">
+						<div class="col-xs-12">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="username" class="control-label">Username</label>
+									<input th:field="*{username}" maxlength="100" type="text" class="form-control" />
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="password" class="control-label">Password</label>
+									<input th:field="*{password}" maxlength="100" type="password" class="form-control" />
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="firstName" class="control-label">First Name</label>
+									<input th:field="*{firstName}" maxlength="100" type="text" class="form-control" placeholder="Enter First Name"/>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="lastName" class="control-label">Last Name</label>
+									<input th:field="*{lastName}" maxlength="100" type="text" class="form-control" placeholder="Enter Last Name"/>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="email" class="control-label">Email</label>
+									<input th:field="*{email}" maxlength="100" type="email" class="form-control" placeholder="Enter Email Address"/>
+								</div>   
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="col-md-4">							                                      
+								<button class="btn btn-primary nextBtn" type="submit">
+									Next
+								</button>
+							</div>								
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Footer -->
+<div class="footer w3ls" th:replace="fragments/footer :: footer">
+	<div class="container">
+		<div class="footer-main">
+			<div class="footer-top">
+				<div class="col-md-4 ftr-grid fg1">
+					<h3>opening timings</h3>
+					<p><span class="fa fa-clock-o" aria-hidden="true"></span><span>Mon - friday</span> : 9am to 8pm</p>
+					<p><span class="fa fa-clock-o" aria-hidden="true"></span><span>Saturday</span> : 9am to 5pm</p>
+					<p><span class="fa fa-clock-o" aria-hidden="true"></span><span>Sunday</span> : 6am to 11pm</p>
+				</div>
+				<div class="col-md-4 ftr-grid fg2 mid-gd">
+					<h3>Our Address</h3>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p>Lorem ipsum dolor sit amet.</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-phone" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p>+1 (512) 154 8176</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p><a href="mailto:info@example.com">info@example.com</a></p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="col-md-4 ftr-grid fg2">
+					<h3>Recent posts</h3>
+					<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</p>
+					<div class="more-button">
+						<a href="#">Read more</a>
+					</div>
+				</div>
+			   <div class="clearfix"> </div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<!-- Footer -->	
+
+<!-- start-smoth-scrolling -->
+<script src="../static/js/SmoothScroll.min.js" th:src="@{js/SmoothScroll.js}"></script>
+
+<script type="text/javascript" src="../static/js/move-top.js" th:src="@{js/move-top.js}"></script>
+	<script type="text/javascript" src="../static/js/easing.js" th:src="@{js/easing.js}"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+	<!-- //here ends scrolling icon -->
+
+	<!-- for bootstrap working -->
+	<script src="../static/js/bootstrap.js" th:src="@{js/bootstrap.js}"></script>
+	<!-- //for bootstrap working -->
+	<script src="../static/js/jquery.bootstrap.wizard.js" th:src="@{js/jquery.bootstrap.wizard.js}" type="text/javascript"></script>
+	<script src="../static/js/form_wizards.js" th:src="@{js/form_wizards.js}" type="text/javascript"></script>
+</body>
+</html>

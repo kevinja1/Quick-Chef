@@ -1,0 +1,34 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /console
+    settings:
+      trace: false
+      web-allow-others: false
+  datasource:
+    URL: jdbc:h2:mem:quickchef;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    platform: h2
+    username: sa
+    password:
+    driverClassName: org.h2.Driver    
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
+  queries:
+    users-query: select user_id, password, active from tbl_users where user_id=?
+    roles-query: select u.user_id, r.role from tbl_users u inner join tbl_users_roles ur on(u.user_id=ur.user_id) inner join tbl_roles r on(ur.role_id=r.role_id) where u.user_id=?
+      
