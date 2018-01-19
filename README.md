@@ -34,7 +34,7 @@ Once you are at the "Cart" tab, you can checkout and fill out the checkout form 
 
 If you are looking for a membership-style option, you can click the "login" tab on the top of the screen. Here, you can sign up for an account or login with a previously made account. 
 
-One example of an already made account is: username: jliew  password: admin
+One example of an already made account is: username: jliew  , password: admin
 
 You can set your preferences such as Vegan and gluten free and low calorie and fill out the rest of your information. You can choose plans based on number of people needed to serve and number of servings needed per week.
 
@@ -63,11 +63,3 @@ https://www.youtube.com/watch?v=Q5bQaWVjTmU
 https://www.youtube.com/watch?v=m5F0Lq03spM&list=PLnnxRSLejUndkH0rWzc2_qVlQTLxPv_0O
 
 https://fthmb.tqn.com/BCAxGtfAcOus9kyQOzlfAHfnR4c=/960x0/filters:no_upscale()/Fotolia_61173888_M-56a993e63df78cf772a87c59.jpg
-
-
-# quickchef
-# quickchef
-# quickchef
-# QuickChef
-# quickchef
-# quickchef
