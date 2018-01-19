@@ -5,7 +5,7 @@ Welcome to Quick Chef, the simplest way to dinner!
 
 Here is the link to my website: 
 
-http://18.221.130.47:8080
+http://kevinmathew-fbla.servehttp.com
 
 How to use my website:
 
