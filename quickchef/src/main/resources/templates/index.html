@@ -382,7 +382,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<div class="col-md-5" style="margin-top: 10px;">
 			<form action="/checkCoverage" method="get">
-				<input type="zip" name="zip" placeholder="Enter zipcode" required="" style="height:35px;">
+				<input type="zip" name="zip" maxlength="5" placeholder="Enter zipcode" data-mask="00000" style="height:35px;">
 				<button class="btn btn-default nextBtn" type="submit">
 					Find
 				</button>
@@ -491,6 +491,8 @@ $(window).load(function(){
 					scrollTop: $(this.hash).offset().top
 				}, 1000);
 			});
+			
+			$.applyDataMask();
 		});
 	</script>
 

@@ -21,6 +21,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" type="text/css" media="all" />
 <!-- js -->
 <script type="text/javascript" src="../static/js/jquery-2.1.4.min.js" th:src="@{js/jquery-2.1.4.min.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js"></script>
 <!-- //js -->
 
 <!-- font-awesome-icons -->
@@ -106,7 +107,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<td>
 								<input type="hidden" th:field="*{items[__${stat.index}__].recipeId}"/>
 								<input type="hidden" th:field="*{items[__${stat.index}__].name}"/>
- 								<input type="text" th:field="*{items[__${stat.index}__].quantity}" style="text-align:right; width:50px;"/>
+ 								<input type="text" th:field="*{items[__${stat.index}__].quantity}" data-mask="0000" style="text-align:right; width:50px;"/>
 							</td>
 							<td style="text-align:right">$9.99</td>
 							<td style="text-align:right" th:text="'$' + ${item.itemTotal}"></td>
@@ -203,6 +204,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					scrollTop: $(this.hash).offset().top
 				}, 1000);
 			});
+			
+			$.applyDataMask();
 		});
 	</script>
 

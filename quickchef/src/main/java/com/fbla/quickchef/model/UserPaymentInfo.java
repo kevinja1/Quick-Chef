@@ -113,6 +113,6 @@ public class UserPaymentInfo {
 	}
 	
 	public String getMaskCcNum() {
-		return String.format("XXXX-XXXX-XXXX-%s", StringUtils.substring(ccNum, 12, ccNum.length()));
+		return String.format("XXXX-XXXX-XXXX-%s", StringUtils.substring(ccNum, ccNum.length() - 4, ccNum.length()));
 	}
 }

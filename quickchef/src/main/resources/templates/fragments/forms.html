@@ -70,21 +70,21 @@
 			<div class="col-md-4">
 				<div class="form-group">
 					<label for="City" class="control-label">City</label>
-					<input th:field="*{city}" maxlength="12" type="text" class="form-control" placeholder="Enter City"/>
+					<input th:field="*{city}" maxlength="30" type="text" class="form-control" placeholder="Enter City"/>
 					<span class="help-block" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Required field</span>
 				</div>
 			</div>
 			<div class="col-md-2">
 				<div class="form-group">
 					<label for="step_cpwd" class="control-label">State</label>
-					<input th:field="*{state}" maxlength="12" type="text" class="form-control" placeholder="Enter State"/>
+					<input th:field="*{state}" maxlength="2" type="text" class="form-control" data-mask="SS" placeholder="Enter State"/>
 					<span class="help-block" th:if="${#fields.hasErrors('state')}" th:errors="*{state}">Required field</span>
 				</div>
 			</div>
 			<div class="col-md-3">
 				<div class="form-group">
 					<label for="step_cpwd" class="control-label">Zip</label>
-					<input th:field="*{zip}" maxlength="12" type="text" class="form-control" placeholder="Enter Zip"/>
+					<input th:field="*{zip}" maxlength="5" type="text" class="form-control" data-mask="00000" placeholder="Enter Zip"/>
 					<span class="help-block" th:if="${#fields.hasErrors('zip')}" th:errors="*{zip}">Required field</span>
 				</div>
 			</div>			
@@ -207,21 +207,21 @@
 				<div class="col-md-4">
 					<div class="form-group">
 						<label for="ccNum" class="control-label">Card Number</label>
-						<input th:field="*{ccNum}" maxlength="16" type="text" class="form-control" placeholder="Card Number"/>
+						<input th:field="*{ccNum}" maxlength="19" type="text" class="form-control" data-mask="0000-0000-0000-0000" placeholder="Card Number"/>
 						<span class="help-block" th:if="${#fields.hasErrors('ccNum')}" th:errors="*{ccNum}">Required field</span>
 					</div>
 				</div>
 				<div class="col-md-2">
 					<div class="form-group">
 						<label for="ccExp" class="control-label">Card Expiration</label>
-						<input th:field="*{ccExp}" maxlength="5" type="text" class="form-control" placeholder="MM/YY"/>
+						<input th:field="*{ccExp}" maxlength="5" type="text" class="form-control" data-mask="00/00" placeholder="MM/YY"/>
 						<span class="help-block" th:if="${#fields.hasErrors('ccExp')}" th:errors="*{ccExp}">Required field</span>
 					</div>
 				</div>
 				<div class="col-md-2">
 					<div class="form-group">
 						<label for="ccCvc" class="control-label">CVC</label>
-						<input th:field="*{ccCvc}" maxlength="3" type="text" class="form-control" placeholder="CVC"/>
+						<input th:field="*{ccCvc}" maxlength="3" type="text" class="form-control" data-mask="000" placeholder="CVC"/>
 						<span class="help-block" th:if="${#fields.hasErrors('ccCvc')}" th:errors="*{ccCvc}">Required field</span>
 					</div>
 				</div>
@@ -255,21 +255,21 @@
 			<div class="col-md-4">
 				<div class="form-group">
 					<label for="City" class="control-label">City</label>
-					<input th:field="*{billCity}" maxlength="12" type="text" class="form-control" placeholder="Enter City"/>
+					<input th:field="*{billCity}" maxlength="30" type="text" class="form-control" placeholder="Enter City"/>
 					<span class="help-block" th:if="${#fields.hasErrors('billCity')}" th:errors="*{billCity}">Required field</span>
 				</div>
 			</div>
 			<div class="col-md-2">
 				<div class="form-group">
 					<label for="step_cpwd" class="control-label">State</label>
-					<input th:field="*{billState}" maxlength="12" type="text" class="form-control" placeholder="Enter State"/>
+					<input th:field="*{billState}" maxlength="2" type="text" class="form-control" data-mask="SS" placeholder="Enter State"/>
 					<span class="help-block" th:if="${#fields.hasErrors('billState')}" th:errors="*{billState}">Required field</span>
 				</div>
 			</div>
 			<div class="col-md-3">
 				<div class="form-group">
 					<label for="step_cpwd" class="control-label">Zip</label>
-					<input th:field="*{billZip}" maxlength="12" type="text" class="form-control" placeholder="Enter Zip"/>
+					<input th:field="*{billZip}" maxlength="5" type="text" class="form-control" data-mask="00000" placeholder="Enter Zip"/>
 					<span class="help-block" th:if="${#fields.hasErrors('billZip')}" th:errors="*{billZip}">Required field</span>
 				</div>
 			</div>			

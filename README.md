@@ -71,4 +71,3 @@ https://fthmb.tqn.com/BCAxGtfAcOus9kyQOzlfAHfnR4c=/960x0/filters:no_upscale()/Fo
 # QuickChef
 # quickchef
 # quickchef
-# Quick-Chef

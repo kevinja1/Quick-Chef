@@ -7,7 +7,7 @@ public class FormStep3 {
 	@NotBlank(message="Username is a required field")
 	private String nameOnCard;
 	@NotBlank(message="Username is a required field")
-	@Length(min = 16, max = 16)
+	@Length(min = 19, max = 19)
 	private String ccNum;
 	@NotBlank(message="Username is a required field")
 	private String ccExp;
